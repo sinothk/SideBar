@@ -105,7 +105,7 @@
               tvName = (TextView) itemView.findViewById(R.id.tv_name);
           }
       }
-  }
+     }
 
  ## 4. 适配器Item 布局：
 
