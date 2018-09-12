@@ -1,4 +1,20 @@
-# 1. XML
+# 引入
+ ## Step 1. Add the JitPack repository to your build file
+
+    allprojects {
+      repositories {
+        ...
+        maven { url 'https://jitpack.io' }
+      }
+    }
+ ## Step 2. Add the dependency
+
+	dependencies {
+	        implementation 'com.github.sinothk:SideBar:1.0.0912'
+	}
+
+# 使用
+ ## 1. XML
 
   <?xml version="1.0" encoding="utf-8"?>
   <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -20,7 +36,7 @@
           app:sidebar_text_color="#8D6E63" />
   </RelativeLayout>
   
-# 2. java
+ ## 2. java
   
         contacts.addAll(Contact.getChineseContacts());
         rvContacts.setAdapter(new ContactsAdapter(contacts, R.layout.side_bar_item_contacts));
@@ -41,7 +57,7 @@
             }
         });
         
-# 3. Adapter
+ ## 3. Adapter
 
       public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.ContactsViewHolder> {
 
@@ -89,9 +105,9 @@
               tvName = (TextView) itemView.findViewById(R.id.tv_name);
           }
       }
-  }
+     }
 
-# 4. 适配器Item 布局：
+ ## 4. 适配器Item 布局：
 
   <?xml version="1.0" encoding="utf-8"?>
   <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -137,3 +153,5 @@
           android:layout_height="1dp"
           android:background="#eee" />
   </LinearLayout>
+
+  ![](https://github.com/sinothk/SideBar/blob/master/art/sideBar_style1.png)
