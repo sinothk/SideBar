@@ -1,3 +1,18 @@
+# 引入：
+## Step 1. Add the JitPack repository to your build file
+
+    allprojects {
+      repositories {
+        ...
+        maven { url 'https://jitpack.io' }
+      }
+    }
+## Step 2. Add the dependency
+
+	dependencies {
+	        implementation 'com.github.sinothk:SideBar:1.0.0912'
+	}
+
 # 1. XML
 
   <?xml version="1.0" encoding="utf-8"?>
