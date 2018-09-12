@@ -43,7 +43,7 @@
         
 # 3. Adapter
 
-  public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.ContactsViewHolder> {
+      public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.ContactsViewHolder> {
 
       private List<Contact> contacts;
       private int layoutId;
