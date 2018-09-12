@@ -137,3 +137,5 @@
           android:layout_height="1dp"
           android:background="#eee" />
   </LinearLayout>
+
+![](https://github.com/sinothk/SideBar/blob/master/art/sideBar_style1.png)
