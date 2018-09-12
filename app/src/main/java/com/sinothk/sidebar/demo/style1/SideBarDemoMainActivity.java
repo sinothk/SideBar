@@ -20,7 +20,6 @@ public class SideBarDemoMainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        initData();
         initView();
     }
 
@@ -29,6 +28,7 @@ public class SideBarDemoMainActivity extends AppCompatActivity {
         rvContacts = (RecyclerView) findViewById(R.id.rv_contacts);
         rvContacts.setLayoutManager(new LinearLayoutManager(this));
 
+        contacts.addAll(Contact.getChineseContacts());
         rvContacts.setAdapter(new ContactsAdapter(contacts, R.layout.side_bar_item_contacts));
 
         sideBar = (WaveSideBar) findViewById(R.id.side_bar);
@@ -48,7 +48,4 @@ public class SideBarDemoMainActivity extends AppCompatActivity {
         });
     }
 
-    private void initData() {
-        contacts.addAll(Contact.getChineseContacts());
-    }
 }
