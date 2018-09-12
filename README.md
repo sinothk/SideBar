@@ -22,7 +22,7 @@
   
 # 2. java
   
-  contacts.addAll(Contact.getChineseContacts());
+        contacts.addAll(Contact.getChineseContacts());
         rvContacts.setAdapter(new ContactsAdapter(contacts, R.layout.side_bar_item_contacts));
 
         sideBar = (WaveSideBar) findViewById(R.id.side_bar);
