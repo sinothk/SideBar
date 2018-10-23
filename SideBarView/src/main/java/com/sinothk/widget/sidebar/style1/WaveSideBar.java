@@ -126,13 +126,15 @@ public class WaveSideBar extends View {
         super(context, attrs, defStyleAttr);
         mDisplayMetrics = context.getResources().getDisplayMetrics();
 
-        TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.WaveSideBar);
-        mLazyRespond = typedArray.getBoolean(R.styleable.WaveSideBar_sidebar_lazy_respond, false);
-        mTextColor = typedArray.getColor(R.styleable.WaveSideBar_sidebar_text_color, Color.GRAY);
-        mTextSize = typedArray.getDimension(R.styleable.WaveSideBar_sidebar_text_size, sp2px(DEFAULT_TEXT_SIZE));
-        mMaxOffset = typedArray.getDimension(R.styleable.WaveSideBar_sidebar_max_offset, dp2px(DEFAULT_MAX_OFFSET));
-        mSideBarPosition = typedArray.getInt(R.styleable.WaveSideBar_sidebar_position, POSITION_RIGHT);
-        mTextAlignment = typedArray.getInt(R.styleable.WaveSideBar_sidebar_text_alignment, TEXT_ALIGN_CENTER);
+        TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.SideBar);
+        mLazyRespond = typedArray.getBoolean(R.styleable.SideBar_sidebar_lazy_respond, false);
+        mTextColor = typedArray.getColor(R.styleable.SideBar_sidebar_text_color, Color.GRAY);
+        mTextSize = typedArray.getDimension(R.styleable.SideBar_sidebar_text_size, sp2px(DEFAULT_TEXT_SIZE));
+        mMaxOffset = typedArray.getDimension(R.styleable.SideBar_sidebar_max_offset, dp2px(DEFAULT_MAX_OFFSET));
+        mSideBarPosition = typedArray.getInt(R.styleable.SideBar_sidebar_position, POSITION_RIGHT);
+
+        mTextAlignment = typedArray.getInt(R.styleable.SideBar_sidebar_text_alignment, TEXT_ALIGN_CENTER);
+
         typedArray.recycle();
 
         mIndexItems = DEFAULT_INDEX_ITEMS;
@@ -166,7 +168,9 @@ public class WaveSideBar extends View {
         int width = MeasureSpec.getSize(widthMeasureSpec);
 
         Paint.FontMetrics fontMetrics = mPaint.getFontMetrics();
+
         mIndexItemHeight = fontMetrics.bottom - fontMetrics.top;
+
         mBarHeight = mIndexItems.length * mIndexItemHeight;
 
         // calculate the width of the longest text as the width of side bar
@@ -176,8 +180,11 @@ public class WaveSideBar extends View {
 
         float areaLeft = (mSideBarPosition == POSITION_LEFT) ? 0 : (width - mBarWidth - getPaddingRight());
         float areaRight = (mSideBarPosition == POSITION_LEFT) ? (getPaddingLeft() + areaLeft + mBarWidth) : width;
-        float areaTop = height / 2 - mBarHeight / 2;
-        float areaBottom = areaTop + mBarHeight;
+
+        float areaTop = height / 2 - mBarHeight / 2+200;
+
+        float areaBottom = areaTop + mBarHeight+200;
+
         mStartTouchingArea.set(
                 areaLeft,
                 areaTop,
