@@ -37,9 +37,6 @@ public class SideBar extends View {
 
     private OnTouchingLetterChangedListener mOnTouchingLetterChangedListener;
 
-    private final String[] DEFAULT_INDEX_ITEMS = {"A", "B", "C", "D", "E", "F", "G", "H", "I",
-            "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "#"};
-
     private String[] mLetters = null;
 
     private Paint mPaint;
@@ -79,7 +76,8 @@ public class SideBar extends View {
         this.mTextSize = typedArray.getDimension(R.styleable.SideBar_sidebar_text_size, sp2px(DEFAULT_TEXT_SIZE));
 
 //        this.mLetters = context.getResources().getStringArray(R.array.letter_list;);
-        this.mLetters = DEFAULT_INDEX_ITEMS;
+        this.mLetters = new String[]{"A", "B", "C", "D", "E", "F", "G", "H", "I",
+                "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "#"};
 
         mTouchSlop = ViewConfiguration.get(context).getScaledTouchSlop();
         mDensity = getContext().getResources().getDisplayMetrics().density;
@@ -105,16 +103,10 @@ public class SideBar extends View {
         return mLetters.length;
     }
 
-    @Deprecated
     public void setIndexItems(String[] indexItems) {
         this.mLetters = Arrays.copyOf(indexItems, indexItems.length);
         requestLayout();
     }
-
-//    public void setIndexItems(String... indexItems) {
-//        this.mLetters = Arrays.copyOf(indexItems, indexItems.length);
-//        requestLayout();
-//    }
 
     @Override
     public boolean onTouchEvent(MotionEvent ev) {
