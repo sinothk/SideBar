@@ -10,48 +10,43 @@
  ## Step 2. Add the dependency
 
 	dependencies {
-	        implementation 'com.github.sinothk:SideBar:1.0.0912'
+	        implementation 'com.github.sinothk:SideBar:1.0.1023'
 	}
 
 # 使用
  ## 1. XML
 
-  <?xml version="1.0" encoding="utf-8"?>
-  <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-      xmlns:app="http://schemas.android.com/apk/res-auto"
-      android:layout_width="match_parent"
-      android:layout_height="match_parent">
-
-      <android.support.v7.widget.RecyclerView
-          android:id="@+id/rv_contacts"
-          android:layout_width="match_parent"
-          android:layout_height="match_parent" />
-
-      <com.sinothk.widget.sidebar.style1.WaveSideBar
-          android:id="@+id/side_bar"
-          android:layout_width="match_parent"
-          android:layout_height="match_parent"
-          android:paddingLeft="8dp"
-          android:paddingRight="8dp"
-          app:sidebar_text_color="#8D6E63" />
-  </RelativeLayout>
+	  <RelativeLayout
+		android:layout_width="match_parent"
+		android:layout_height="match_parent">
+		<android.support.v7.widget.RecyclerView
+		    android:id="@+id/rv_contacts"
+		    android:layout_width="match_parent"
+		    android:layout_height="match_parent" />
+		<com.sinothk.widget.sidebar.style1.SideBar
+		    android:id="@+id/sideBar"
+		    android:layout_width="match_parent"
+		    android:layout_height="match_parent"
+		    android:layout_alignParentEnd="true"
+		    app:sidebar_text_color="#8D6E63"
+		    app:sidebar_text_size="13sp" />
+	    </RelativeLayout>
   
  ## 2. java
   
         contacts.addAll(Contact.getChineseContacts());
         rvContacts.setAdapter(new ContactsAdapter(contacts, R.layout.side_bar_item_contacts));
 
-        sideBar = (WaveSideBar) findViewById(R.id.side_bar);
-        sideBar.setIndexItems("A", "B", "D", "F", "H", "#");
-        sideBar.setPosition(WaveSideBar.POSITION_RIGHT);
-        sideBar.setOnSelectIndexItemListener(new WaveSideBar.OnSelectIndexItemListener() {
+        SideBar sideBar = (SideBar) findViewById(R.id.sideBar);
+        sideBar.setOnTouchingLetterChangedListener(new SideBar.OnTouchingLetterChangedListener() {
             @Override
-            public void onSelectIndexItem(String index) {
+            public void onTouchingLetterChanged(String index) {
+
                 for (int i = 0; i < contacts.size(); i++) {
                     if (contacts.get(i).getIndex().equals(index)) {
                         ((LinearLayoutManager) rvContacts.getLayoutManager()).scrollToPositionWithOffset(i, 0);
                         return;
-                    }else{
+                    } else {
                     }
                 }
             }
