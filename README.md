@@ -10,7 +10,8 @@
  ## Step 2. Add the dependency
 
 	dependencies {
-	        implementation 'com.github.sinothk:SideBar:1.0.1023'
+	        implementation 'com.github.sinothk:SideBar:2.19.0907'
+	}
 	}
 
 # 使用
