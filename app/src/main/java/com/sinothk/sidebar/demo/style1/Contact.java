@@ -70,6 +70,9 @@ public class Contact {
 
     public static List<Contact> getChineseContacts() {
         List<Contact> contacts = new ArrayList<>();
+        contacts.add(new Contact("#", "121"));
+        contacts.add(new Contact("#", "123"));
+
         contacts.add(new Contact("B", "白虎"));
         contacts.add(new Contact("C", "常羲"));
         contacts.add(new Contact("C", "嫦娥"));
@@ -93,8 +96,7 @@ public class Contact {
         contacts.add(new Contact("Z", "猪八戒"));
         contacts.add(new Contact("Z", "朱雀"));
         contacts.add(new Contact("Z", "祝融"));
-        contacts.add(new Contact("#", "121"));
-        contacts.add(new Contact("#", "123"));
+
 
         return contacts;
     }

@@ -31,13 +31,17 @@ public class SideBar extends View {
 
     private static final String TAG = SideBar.class.getSimpleName();
 
+    public static void setIndexLetters(String[] letters) {
+        mLetters = letters;
+    }
+
     public interface OnTouchingLetterChangedListener {
         void onTouchingLetterChanged(String s);
     }
 
     private OnTouchingLetterChangedListener mOnTouchingLetterChangedListener;
 
-    private String[] mLetters = null;
+    private static String[] mLetters = null;
 
     private Paint mPaint;
 
@@ -75,9 +79,12 @@ public class SideBar extends View {
         this.mTextColor = typedArray.getColor(R.styleable.SideBar_sidebar_text_color, Color.GRAY);
         this.mTextSize = typedArray.getDimension(R.styleable.SideBar_sidebar_text_size, sp2px(DEFAULT_TEXT_SIZE));
 
-//        this.mLetters = context.getResources().getStringArray(R.array.letter_list;);
-        this.mLetters = new String[]{"A", "B", "C", "D", "E", "F", "G", "H", "I",
-                "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "#"};
+        if (mLetters == null) {
+            mLetters = context.getResources().getStringArray(R.array.letter_list);
+        }
+
+//        this.mLetters = new String[]{"A", "B", "C", "D", "E", "F", "G", "H", "I",
+//                "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "#"};
 
         mTouchSlop = ViewConfiguration.get(context).getScaledTouchSlop();
         mDensity = getContext().getResources().getDisplayMetrics().density;

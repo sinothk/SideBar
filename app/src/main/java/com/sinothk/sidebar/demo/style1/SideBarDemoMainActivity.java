@@ -30,6 +30,8 @@ public class SideBarDemoMainActivity extends AppCompatActivity {
         contacts.addAll(Contact.getChineseContacts());
         rvContacts.setAdapter(new ContactsAdapter(contacts, R.layout.side_bar_item_contacts));
 
+        SideBar.setIndexLetters(new String[]{"A", "B", "C", "D", "E", "F", "G", "H", "I"});
+
         SideBar sideBar = (SideBar) findViewById(R.id.sideBar);
         sideBar.setOnTouchingLetterChangedListener(new SideBar.OnTouchingLetterChangedListener() {
             @Override
@@ -44,14 +46,6 @@ public class SideBarDemoMainActivity extends AppCompatActivity {
                 }
             }
         });
-
-
-
-
-
-
-
-
 
 
 //
